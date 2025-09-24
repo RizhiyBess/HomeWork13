@@ -30,7 +30,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "author=" + author +
+                "author=" + author.toString() +
                 ", titleBook='" + titleBook + '\'' +
                 ", yearPublication=" + yearPublication +
                 '}';
@@ -40,11 +40,11 @@ public class Book {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return yearPublication == book.yearPublication && Objects.equals(titleBook, book.titleBook);
+        return yearPublication == book.yearPublication && Objects.equals(author, book.author) && Objects.equals(titleBook, book.titleBook);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(titleBook, yearPublication);
+        return Objects.hash(author, titleBook, yearPublication);
     }
 }
